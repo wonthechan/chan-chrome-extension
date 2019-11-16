@@ -5,11 +5,11 @@ if (localStorage.getItem('date')) {
 }
 
 // 12시간 마다 한번씩 배경화면을 새로 불러온다.
-if (!storedDate || storedDate < today) {
+if (!storedDate || storedDate < date_today) {
   localStorage.removeItem('date');
   localStorage.removeItem('wallpapers');
-  today.setHours(today.getHours() + 12);
-  localStorage.setItem('date', today);
+  date_today.setHours(date_today.getHours() + 12);
+  localStorage.setItem('date', date_today);
 }
 
 let wallpapers = JSON.parse(localStorage.getItem('wallpapers'));
@@ -53,7 +53,35 @@ function getNewWallpapers() {
   });
 }
 
+
+
+
 $(document).ready(function() {
+  var name = "codemzy";
+  // https://cors-anywhere.herokuapp.com/
+  var url = 'https://cors-anywhere.herokuapp.com/www.melon.com/chart/index.htm';
+  console.log(url)
+
+  $.get(url, function(response) {
+    //console.log(response);
+    listMusic = /<table[\s|\S]*?>[\s|\S]*?<\/table>/g.exec(response)[0].match(/<tr class="lst50"[\s|\S]*?>[\s|\S]*?<\/tr>/g);
+
+    for (i in listMusic) {
+      //console.log(source)
+      urlAlbumArt = /src="([\S]*)\/melon/g.exec(listMusic[i])[1]
+      titleSong = /<div class="ellipsis rank01"><span>[\s|\S]*?>([\s|\S]*?)<\/a>/g.exec(listMusic[i])[1]
+      artist = /<div class="ellipsis rank02">[\s|\S]*?>([\s|\S]*?)<\/a>/g.exec(listMusic[i])[1]
+      titleAlbum = /<div class="ellipsis rank03">[\s|\S]*?>([\s|\S]*?)<\/a>/g.exec(listMusic[i])[1]
+      console.log(urlAlbumArt);
+      console.log(titleSong);
+      console.log(artist);
+      console.log(titleAlbum);
+      console.log('\n')
+    }
+
+  });
+
+
   getBgImage();
   if (!wallpapers || wallpapers.length === 0) {
     // 배경화면 주소를 일괄적으로 20개 정도 가져옴.
