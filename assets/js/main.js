@@ -58,7 +58,7 @@ function getBgImage() {
 
 function getNewSongs() {
   let songs = [];
-  var url = 'https://cors-anywhere.herokuapp.com/www.melon.com/chart/index.htm';
+  var url = 'https://cors-anywhere.herokuapp.com/https://www.melon.com/chart/index.htm';
   $.get(url, function(response) {
     listMusic = /<table[\s|\S]*?>[\s|\S]*?<\/table>/g.exec(response)[0].match(/<tr class="lst50"[\s|\S]*?>[\s|\S]*?<\/tr>/g);
     for (i in listMusic) {
