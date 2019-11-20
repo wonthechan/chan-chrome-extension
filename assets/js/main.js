@@ -35,8 +35,6 @@ function showBackgroundImage(path) {
         'no-repeat'
       );
 
-
-  
   // background: #eb01a5;
   // background-image: url("IMAGE_URL"); /* fallback */
   // background-image: url("IMAGE_URL"), linear-gradient(#eb01a5, #d13531); /* W3C */
@@ -47,6 +45,48 @@ function showBackgroundImage(path) {
     });
 }
 
+function showInfoCard(song) {
+  $('.song-info-card')
+    .find('.title')
+    .html(song.title);
+  $('.song-info-card')
+    .find('.overview')
+    .html(song.album);
+  $('.song-info-card')
+    .find('.score')
+    .html(song.artist);
+  /*
+  $('.song-info-card')
+    .find('.year')
+    .html(movie.release_date.substring(0, 4));
+
+  $('.song-info-card')
+    .find('.show-trailer')
+    .click(function() {
+      showTrailerOnFirstPage(movie.id);
+    });
+  $('.song-info-card')
+    .find('.buy-on-amazon')
+    .attr(
+      'href',
+      `https://www.amazon.com/gp/search?ie=UTF8&tag=raterfox08-20&linkCode=ur2&linkId=365279f34ba1edc9f1cbfff1b42ae96c&camp=1789&creative=9325&index=instant-video&keywords=${
+        song.title
+      }`
+    );
+  // if (movie.imdb_id) {
+  //   $('.movie-info-card .show-on-imdb').click(function () {
+  //     window.open('https://www.imdb.com/title/' + movie.imdb_id, 'iMDB');
+  //   });
+  // };
+  $('.song-info-card')
+    .find('.show-on-raterfox')
+    .click(function() {
+      window.open('https://www.raterfox.com');
+    });
+  */
+}
+
+
 function getBgImage() {
   let songs = JSON.parse(localStorage.getItem('songs'));
   if (songs) {
@@ -54,6 +94,7 @@ function getBgImage() {
     background_image = randomSong.url
     console.log('getBgImage: ' + background_image)
     showBackgroundImage(background_image);
+    showInfoCard(randomSong);
   }
 }
 
