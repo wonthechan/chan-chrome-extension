@@ -43,7 +43,7 @@ function showBackgroundImage(path) {
 
       $('.background-overlay').addClass('loaded');
       $('.info-block').addClass('loaded');
-      $('.movie-info-card').addClass('loaded');
+      $('.song-info-card').addClass('loaded');
     });
 }
 

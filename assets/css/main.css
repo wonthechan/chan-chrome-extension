@@ -193,7 +193,7 @@ a:visited {
   font-size: 12px;
 }
 
-.movie-info-card {
+.song-info-card {
   font-family: 'Hero', 'Open Sans', sans-serif;
   position: absolute;
   bottom: 0;
@@ -209,30 +209,30 @@ a:visited {
   border-radius: 5px;
 }
 
-.movie-info-card.loaded {
+.song-info-card.loaded {
   opacity: 1;
   transition: all 0.3s ease-in-out;
 }
 
-/* .movie-info-card h1 {
+/* .song-info-card h1 {
   margin-bottom: 5px;
 }
 
-.movie-info-card h3 {
+.song-info-card h3 {
 } */
 
-.movie-info-card .overview {
+.song-info-card .overview {
   font-family: 'Open Sans';
   font-size: 14px;
 }
 
-.movie-info-card .year {
+.song-info-card .year {
   /* font-size: 14px; */
   display: none;
   /* font-weight: 700; */
 }
 
-.movie-info-card .links-wrapper {
+.song-info-card .links-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -240,14 +240,14 @@ a:visited {
   margin-bottom: 5px;
 }
 
-.movie-info-card .links-wrapper a {
+.song-info-card .links-wrapper a {
   color: rgba(255, 255, 255, 0.9);
   cursor: pointer;
   font-weight: 700;
   transition: all 0.3s ease-in-out;
 }
 
-.movie-info-card .links-wrapper a:hover {
+.song-info-card .links-wrapper a:hover {
   color: rgba(255, 255, 255, 1);
   transform: translate(0, -1px);
 }
@@ -263,7 +263,7 @@ a:visited {
   font-size: 20px;
 }
 
-/* .movie-info-card .score::before {
+/* .song-info-card .score::before {
   content: '';
   background: url('../images/logo_only.png');
   background-size: 40px;
