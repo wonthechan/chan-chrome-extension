@@ -104,11 +104,13 @@ function getNewSongs() {
   $.get(url, function(response) {
     listMusic = /<table[\s|\S]*?>[\s|\S]*?<\/table>/g.exec(response)[0].match(/<tr class="lst50"[\s|\S]*?>[\s|\S]*?<\/tr>/g);
     for (i in listMusic) {
+      //console.log(listMusic[i]);
       var data = new Object();
-      data.url = /src="([\S]*)\/melon/g.exec(listMusic[i])[1]
-      data.title = /<div class="ellipsis rank01"><span>[\s|\S]*?>([\s|\S]*?)<\/a>/g.exec(listMusic[i])[1]
-      data.artist = /<div class="ellipsis rank02">[\s|\S]*?>([\s|\S]*?)<\/a>/g.exec(listMusic[i])[1]
-      data.album = /<div class="ellipsis rank03">[\s|\S]*?>([\s|\S]*?)<\/a>/g.exec(listMusic[i])[1]
+      data.id = /<tr[\s|\S]*?data-song-no="([\s|\S]*?)">/g.exec(listMusic[i])[1];
+      data.url = /src="([\S]*)\/melon/g.exec(listMusic[i])[1];
+      data.title = /<div class="ellipsis rank01"><span>[\s|\S]*?>([\s|\S]*?)<\/a>/g.exec(listMusic[i])[1];
+      data.artist = /<div class="ellipsis rank02">[\s|\S]*?>([\s|\S]*?)<\/a>/g.exec(listMusic[i])[1];
+      data.album = /<div class="ellipsis rank03">[\s|\S]*?>([\s|\S]*?)<\/a>/g.exec(listMusic[i])[1];
       // console.log(data.url);
       // console.log(data.title);
       // console.log(data.artist);
