@@ -65,25 +65,31 @@ function showInfoCard(song) {
     .click(function() {
       showTrailerOnFirstPage(movie.id);
     });
+  */
   $('.song-info-card')
-    .find('.buy-on-amazon')
+    .find('.play-song-intro')
     .attr(
       'href',
-      `https://www.amazon.com/gp/search?ie=UTF8&tag=raterfox08-20&linkCode=ur2&linkId=365279f34ba1edc9f1cbfff1b42ae96c&camp=1789&creative=9325&index=instant-video&keywords=${
-        song.title
-      }`
-    );
+      `https://www.melon.com/webplayer/mini.htm?contsIds=${song.id}&contsType=S`)
+    .click(function() {
+      window.open(this.href, '_blank', 'width=500, height=500, toolbars=no, scrollbars=yes'); 
+      return false;
+    });
+  /*
   // if (movie.imdb_id) {
   //   $('.movie-info-card .show-on-imdb').click(function () {
   //     window.open('https://www.imdb.com/title/' + movie.imdb_id, 'iMDB');
   //   });
   // };
-  $('.song-info-card')
-    .find('.show-on-raterfox')
-    .click(function() {
-      window.open('https://www.raterfox.com');
-    });
   */
+  $('.song-info-card')
+    .find('.open-song-info')
+    .click(function() {
+      url_info = `https://www.melon.com/song/detail.htm?songId=${song.id}`
+      window.open(url_info, '_blank'); 
+      return false;
+    });
+  
 }
 
 
